@@ -10,8 +10,8 @@ _Now with 97.2% less jQuery! (jQuery, we still love you)_
 2. Initialize the bubbakeys plugin once the DOM has loaded:
 
 ```javascript
-// Hear Bubba when c,a,r,l keys are pressed
-bubbakeys();
+// Hear Bubba when "c", "a", "r" and "l" keys are pressed
+bubbakeys('carl');
 ```
 
 More info at [https://github.com/broeneatsdinner/bubbakeys](https://github.com/broeneatsdinner/bubbakeys).
