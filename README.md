@@ -1,20 +1,17 @@
-# fartscroll.js
+# bubbakeys.js
 
-Everyone farts. And now your web pages can too.
+Press some keys, hear Bubba speak.
 
-_Now with 100% less jQuery! (Sorry, jQuery, we still love you)_
+_Now with 97.2% less jQuery! (jQuery, we still love you)_
 
 ### Setup:
 
-1. Include "fartscroll.js" in your page. (You can use the latest from our CDN: [//code.onion.com/fartscroll.js](http://code.onion.com/fartscroll.js))
-2. Initialize the fartscroll plugin once the DOM has loaded:
+1. Include "bubbakeys.js" in your page.
+2. Initialize the bubbakeys plugin once the DOM has loaded:
 
 ```javascript
-// Fart every 400 pixels scrolled
-fartscroll(); 
-
-// Fart every 800 pixels scrolled
-fartscroll(800);
+// Hear Bubba when c,a,r,l keys are pressed
+bubbakeys();
 ```
-    
-More info at [http://theonion.github.io/fartscroll.js/](http://theonion.github.io/fartscroll.js/).
+
+More info at [https://github.com/broeneatsdinner/bubbakeys](https://github.com/broeneatsdinner/bubbakeys).

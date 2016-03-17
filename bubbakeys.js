@@ -2,6 +2,50 @@
 "use strict";
 
 var bubbakeys = (function () {
+
+	// Check whether the "d" "e" and "v" keys are all down at the same time.
+	// @see http://stackoverflow.com/questions/10655202/detect-multiple-keys-on-single-keypress-event-in-jquery
+	// @see http://stackoverflow.com/questions/4954403/can-jquery-keypress-detect-more-than-one-key-at-the-same-time
+	// d = 68, e = 69, v = 86
+	// f = 70, i = 73, n = 78, k = 75 // Doesn't work too well with my keyboard
+	// c = 67, a = 65, r = 82, l = 76
+	var map = {68: false, 69: false, 86: false}; // dev
+	//var map = {70: false, 73: false, 78: false, 75: false}; // fink
+	//var map = {67: false, 65: false, 82: false, 76: false}; // carl
+
+	$(document).keydown(function(e) {
+		if (e.keyCode in map) {
+			map[e.keyCode] = true;
+			if (checkAllTrue(map)) {
+				// Reset the object
+				setAllFalse(map);
+				// FIRE EVENT
+				alert('oh hai');
+				//playAudio();
+			}
+		}
+	}).keyup(function(e) {
+		// Make sure they're all pressed at the same time.
+		if (e.keyCode in map) {
+			map[e.keyCode] = false;
+		}
+	});
+
+	function checkAllTrue(object) {
+		for (var i in object) {
+			if (object[i] === false) {
+				return false;
+			}
+		}
+		return true;
+	};
+
+	function setAllFalse(object) {
+		for (var i in object) {
+			object[i] = false;
+		}
+	};
+
 	var mp3 = {
 		prefix: "data:audio/mp3;base64,",
 		sound: [
@@ -16,35 +60,25 @@ var bubbakeys = (function () {
 		]
 	};
 
-	return function (trigger_distance) {
-		trigger_distance = trigger_distance || 400;
-		var lastOffset;
+	return function (keys) {
+		keys = keys || 'dev';
 
-		var scrollFart = function() {
-			var scrollOffset = Math.floor(window.scrollY / trigger_distance);
-			if (lastOffset !== scrollOffset) {
-				playAudio();
-				lastOffset = scrollOffset;
-			}
-		};
+		var characters = keys.split('');
+		for (var key in characters) {
+			//alert(key + ': ' + characters[key]);
+			var character = characters[key];
+			var character = character.toUpperCase();
+			var code = character.charCodeAt(0);
+			var message = "The Key Code for the \""+character+"\" character is "+code+".";
+			//alert(message);
+		}
 
-		var timer;
-
-		function resizeFart() {
-			if (timer) {
-				clearTimeout(timer);
-			}
-			timer = setTimeout(function(){ playAudio(); }, 200);
-		};
-
-		window.addEventListener('scroll', scrollFart, false);
-		window.addEventListener('resize', resizeFart, false);
 	};
 
 	function playAudio(position){
-		var player = getPlayer()
-		, audio = getAudioFor(player)
-		, rand = Math.floor(Math.random() * audio.sound.length);
+		var player = getPlayer();
+		var audio = getAudioFor(player);
+		var rand = Math.floor(Math.random() * audio.sound.length);
 
 		player.src = audio.prefix + audio.sound[position || rand];
 		player.play();

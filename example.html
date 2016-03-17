@@ -1,51 +1,13 @@
 <html>
 	<head>
-		<title>Testing Fartscroll.js</title>
+		<title>Testing Bubbakeys.js</title>
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script src="bubbakeys.js"></script>
 		<script>
 		$(document).ready(function() {
-			// Ensure the page always has more scrolling
-			bubbakeys(800);
+			// Ensure that you always have a friend in Bubba
+			bubbakeys('carl');
 
-			// Check whether the "d" "e" and "v" keys are all down at the same time.
-			// @see http://stackoverflow.com/questions/10655202/detect-multiple-keys-on-single-keypress-event-in-jquery
-			// @see http://stackoverflow.com/questions/4954403/can-jquery-keypress-detect-more-than-one-key-at-the-same-time
-			// d = 68, e = 69, v = 86
-			// f = 70, i = 73, n = 78, k = 75 // Doesn't work too well with my keyboard
-			// c = 67, a = 65, r = 82, l = 76
-			//var map = {68: false, 69: false, 86: false}; // dev
-			//var map = {70: false, 73: false, 78: false, 75: false}; // fink
-			var map = {67: false, 65: false, 82: false, 76: false}; // carl
-			$(document).keydown(function(e) {
-				if (e.keyCode in map) {
-					map[e.keyCode] = true;
-					if (checkAllTrue(map)) {
-						// Reset the object
-						setAllFalse(map);
-						// FIRE EVENT
-						alert('oh hai');
-					}
-				}
-			}).keyup(function(e) {
-				// Make sure they're all pressed at the same time.
-				if (e.keyCode in map) {
-					map[e.keyCode] = false;
-				}
-			});
-			checkAllTrue = function(object) {
-				for (var i in object) {
-					if (object[i] === false) {
-						return false;
-					}
-				}
-				return true;
-			};
-			setAllFalse = function(object) {
-				for (var i in object) {
-					object[i] = false;
-				}
-			};
 		});
 		</script>
 	</head>
