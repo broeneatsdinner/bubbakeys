@@ -9,9 +9,10 @@ var bubbakeys = (function () {
 	// d = 68, e = 69, v = 86
 	// f = 70, i = 73, n = 78, k = 75 // Doesn't work too well with my keyboard
 	// c = 67, a = 65, r = 82, l = 76
-	var map = {68: false, 69: false, 86: false}; // dev
+	//var map = {68: false, 69: false, 86: false}; // dev
 	//var map = {70: false, 73: false, 78: false, 75: false}; // fink
 	//var map = {67: false, 65: false, 82: false, 76: false}; // carl
+	var map = {};
 
 	$(document).keydown(function(e) {
 		if (e.keyCode in map) {
@@ -71,6 +72,7 @@ var bubbakeys = (function () {
 			var code = character.charCodeAt(0);
 			var message = "The Key Code for the \""+character+"\" character is "+code+".";
 			//alert(message);
+			map[code] = false;
 		}
 
 	};
