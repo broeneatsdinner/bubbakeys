@@ -5,11 +5,12 @@
 		<script src="bubbakeys.js"></script>
 		<script>
 			// Ensure that you always have a friend in Bubba
-			bubbakeys('carl');
+			const keys = 'carl';
+			bubbakeys(keys);
 		</script>
 	</head>
 	<body>
-		<p>Press (and hold) the keys on your keyboard to fire the event.</p>
+		<p>Press (and hold) the keys <b><script>document.write (keys.split('').join(' '));</script></b> on your keyboard to fire the event.</p>
 		<p>The keys are defined when passed to the bubbakeys() method.</p>
 	</body>
 </html>
