@@ -14,4 +14,5 @@ _Now with 97.2% less jQuery! (jQuery, we still love you)_
 bubbakeys('carl');
 ```
 
+Demo available at [http://broeneatsdinner.github.io/bubbakeys/](http://broeneatsdinner.github.io/bubbakeys/).<br/>
 More info at [https://github.com/broeneatsdinner/bubbakeys](https://github.com/broeneatsdinner/bubbakeys).
