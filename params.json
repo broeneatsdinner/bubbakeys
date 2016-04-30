@@ -1,6 +1,6 @@
 {
   "name": "Bubbakeys",
   "tagline": "Press some keys, hear Bubba speak.",
-  "body": "# bubbakeys.js\r\n\r\nPress some keys, hear Bubba speak.\r\n\r\n_Now with 97.2% less jQuery! (jQuery, we still love you)_\r\n\r\n### Setup:\r\n\r\n1. Include \"bubbakeys.js\" in your page.\r\n2. Initialize the bubbakeys plugin once the DOM has loaded:\r\n\r\n```javascript\r\n// Hear Bubba when \"c\", \"a\", \"r\" and \"l\" keys are pressed\r\nbubbakeys('carl');\r\n```\r\n\r\nMore info at [https://github.com/broeneatsdinner/bubbakeys](https://github.com/broeneatsdinner/bubbakeys).\r\n",
+  "body": "# bubbakeys.js\r\n\r\nPress some keys, hear Bubba speak.\r\n\r\n_Now with 97.2% less jQuery! (jQuery, we still love you)_\r\n\r\n### Setup:\r\n\r\n1. Include \"bubbakeys.js\" in your page.\r\n2. Initialize the bubbakeys plugin once the DOM has loaded:\r\n\r\n```javascript\r\n// Hear Bubba when \"c\", \"a\", \"r\" and \"l\" keys are pressed\r\nbubbakeys('carl');\r\n```\r\n\r\nDemo available at [http://broeneatsdinner.github.io/bubbakeys/](http://broeneatsdinner.github.io/bubbakeys/).<br/>\r\nMore info at [https://github.com/broeneatsdinner/bubbakeys](https://github.com/broeneatsdinner/bubbakeys).\r\n",
   "note": "Don't delete this file! It's used internally to help with page regeneration."
 }
