@@ -27,18 +27,24 @@ function abortMission() {
 	exit;
 }
 
+function waitForNumericInput() {
+	$handle = fopen ("php://stdin","r");
+	$input = fgets($handle);
+	$input = trim($input);
+	fclose($handle);
+
+	if (!is_numeric($input)) {
+		abortMission();
+	}
+
+	return $input;
+}
+
 echo "\n";
 echo "1: MP3 files\n";
 echo "2: OGG files\n";
 echo "Type the number corresponding to the filetype that you want to convert: ";
-$handle = fopen ("php://stdin","r");
-$input = fgets($handle);
-$input = trim($input);
-fclose($handle);
-
-if (!is_numeric($input)) {
-	abortMission();
-}
+$input = waitForNumericInput();
 
 switch ($input) {
 	case "1":
@@ -76,13 +82,7 @@ foreach ($filesArray as $file) {
 }
 
 echo "Type the number corresponding to the file you want to convert: ";
-$handle = fopen ("php://stdin","r");
-$input = fgets($handle);
-fclose($handle);
-
-if (!is_numeric(trim($input))) {
-	abortMission();
-}
+$input = waitForNumericInput();
 
 $indexOfFileChosen = (int)$input - 1;
 $file = $filesArray[$indexOfFileChosen];
@@ -97,14 +97,7 @@ echo "\n";
 echo "1: Output to screen\n";
 echo "2: Output to file\n";
 echo "Type the number corresponding to the output that you'd like: ";
-$handle = fopen ("php://stdin","r");
-$input = fgets($handle);
-$input = trim($input);
-fclose($handle);
-
-if (!is_numeric($input)) {
-	abortMission();
-}
+$input = waitForNumericInput();
 
 switch ($input) {
 	case "1":
